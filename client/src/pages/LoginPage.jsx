@@ -71,14 +71,14 @@ export default function LoginPage() {
           <div className="border-solid border-GreyComp">
             <button
               type="submit"
-              className="text-black bg-GreenComp p-2 rounded-lg border-solid border-GreyComp mb-16"
+              className="text-black bg-GreenComp p-2 rounded-lg border-solid border-GreyComp mb-16 bg-red-400 mt-4 ml-28"
             >
               Connexion
             </button>
             <p className="text-black my-12 text-center">
               Si vous ne possédez pas de compte cliquez
               <a href="/signup" className="text-GreenComp">
-                <span> ici</span>
+                <span className="text-red-500"> ici</span>
               </a>
             </p>
           </div>

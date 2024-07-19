@@ -57,7 +57,7 @@ export default function Navbar({ currentUser, setCurrentUser }) {
         </button>
       </div>
       <div
-        className={`sm:flex ${menuToggle ? "block" : "hidden"} w-full sm:w-auto`}
+        className={`sm:flex ${menuToggle ? "block" : "hidden"} sm:w-auto justify-end`}
       >
         <ul className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-4 mt-4 sm:mt-0">
           <li className="text-lg text-white">

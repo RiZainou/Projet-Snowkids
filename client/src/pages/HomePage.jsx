@@ -8,7 +8,7 @@ export default function HomePage() {
       <div className="flex justify-center mt-5">
         <img src={snowkids} alt="equipe snowkids" className="w-1/3" />
       </div>
-      <div className="border-2 border-blue-500 rounded-lg shadow-lg mx-80 mt-5 p-5">
+      <div className="border-2 border-blue-500 rounded-lg shadow-lg lg:mx-80 mt-5 p-5">
         <h2 className="text-center text-2xl mt-4 font-black text-gray-900">
           Qui sommes nous ?
         </h2>

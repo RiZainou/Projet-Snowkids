@@ -9,6 +9,7 @@ import SignupPage from "./pages/SignupPage";
 import TeamPage from "./pages/TeamPage";
 import TeamDetailPage from "./pages/TeamDetailsPage";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/a-propos",
         element: <AboutPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

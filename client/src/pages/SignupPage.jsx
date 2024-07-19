@@ -172,7 +172,7 @@ export default function SignupPage() {
           Déjà inscrit ?
           <Link
             to="/login"
-            type="button"
+            type="submit"
             className="text-blue-400 underline hover:text-blue-300"
           >
             Connexion

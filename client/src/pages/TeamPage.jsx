@@ -19,9 +19,9 @@ export default function TeamPage() {
   return (
     <div>
       <h1 className="text-center text-4xl mt-10">Nos Équipes</h1>
-      <div>
+      <div className="mt-3">
         {teams.map((team) => (
-          <div key={team.id} className="border-8 p-4 mb-4">
+          <div key={team.id} className="border-2 border-blue-500 p-4 mb-4">
             <Link to={`/equipes/${team.id}`}>
               <h2 className="text-xl">{team.team}</h2>
             </Link>

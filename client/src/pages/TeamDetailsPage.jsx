@@ -8,10 +8,14 @@ export default function TeamDetailPage() {
   const { teamId } = useParams();
   const navigate = useNavigate();
 
-  const [defenseurs, setDefenseurs] = useState([]);
-  const [milieux, setMilieux] = useState([]);
-  const [attaquants, setAttaquants] = useState([]);
+  const [players, setPlayers] = useState([]);
   const [teamName, setTeamName] = useState("");
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser, navigate]);
 
   useEffect(() => {
     axios
@@ -20,43 +24,34 @@ export default function TeamDetailPage() {
         setTeamName(response.data.team);
       })
       .catch((error) => {
-        console.error("There was an error fetching the team details!", error);
-      });
-
-    axios
-      .get("http://localhost:3310/api/players")
-      .then((response) => {
-        const players = response.data;
-
-        const defenseursFiltered = players.filter(
-          (player) =>
-            player.posts_post === "Défenseurs" &&
-            player.teams_team === "Equipe A"
-        );
-        const milieuxFiltered = players.filter(
-          (player) =>
-            player.posts_post === "Milieux" && player.teams_team === "Equipe A"
-        );
-        const attaquantsFiltered = players.filter(
-          (player) =>
-            player.posts_post === "Attaquants" &&
-            player.teams_team === "Equipe A"
-        );
-
-        setDefenseurs(defenseursFiltered);
-        setMilieux(milieuxFiltered);
-        setAttaquants(attaquantsFiltered);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the players!", error);
+        console.error("Erreur lors de la récuperation des joueurs", error);
       });
   }, [teamId]);
 
   useEffect(() => {
-    if (!currentUser) {
-      navigate("/login");
-    }
-  }, [currentUser, navigate]);
+    axios
+      .get("http://localhost:3310/api/players")
+      .then((response) => {
+        setPlayers(response.data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la récuperation des joueurs ", error);
+      });
+  }, []);
+
+  const filteredPlayers = players.filter(
+    (player) => player.teams_team === teamName
+  );
+
+  const defenseurs = filteredPlayers.filter(
+    (player) => player.posts_post === "Défenseurs"
+  );
+  const milieux = filteredPlayers.filter(
+    (player) => player.posts_post === "Milieux"
+  );
+  const attaquants = filteredPlayers.filter(
+    (player) => player.posts_post === "Attaquants"
+  );
 
   return (
     <div>
