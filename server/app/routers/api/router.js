@@ -5,11 +5,29 @@ const router = express.Router();
 /* ************************************************************************* */
 // Import And Use Routers Here
 /* ************************************************************************* */
+const playerRouter = require("./players/routers");
 
-const itemsRouter = require("./items/router");
+router.use("/players", playerRouter);
 
-router.use("/items", itemsRouter);
+const postRouter = require("./posts/router");
 
+router.use("/posts", postRouter);
+
+const roleRouter = require("./roles/router");
+
+router.use("/roles", roleRouter);
+
+const teamRouter = require("./teams/router");
+
+router.use("/teams", teamRouter);
+
+const userRouter = require("./users/router");
+
+router.use("/users", userRouter);
+
+const authRouter = require("./auth/router");
+
+router.use("/auth", authRouter);
 /* ************************************************************************* */
 
 module.exports = router;
